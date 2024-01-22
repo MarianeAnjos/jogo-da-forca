@@ -17,7 +17,7 @@ Siga estas instruções para executar o projeto localmente em sua máquina.
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/seu-projeto-react.git
+   git clone https://github.com/MarianeAnjos/jogo-da-forca
 
 2. Acesse o diretório do projeto:
 cd seu-projeto-react
