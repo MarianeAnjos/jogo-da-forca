@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 /* Construção dos mostradores de letras */
 
+// Estilo do componente principal
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -12,11 +13,13 @@ const Wrapper = styled.div`
   font-family: sans-serif;
 `;
 
+// Propriedades do componente
 interface HangManWordProps {
   word: string;
   guessedLetters: string[];
 }
 
+// Componente de exibição da palavra oculta
 export default function HangmandWord({ word, guessedLetters }: HangManWordProps) {
   /* visibility hidden - deixa a palavra invisível */
   return (
