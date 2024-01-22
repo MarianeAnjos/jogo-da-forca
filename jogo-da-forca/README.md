@@ -20,7 +20,7 @@ Siga estas instruções para executar o projeto localmente em sua máquina.
    git clone https://github.com/MarianeAnjos/jogo-da-forca
 
 2. Acesse o diretório do projeto:
-cd seu-projeto-react
+cd jogo-da-forca
 
 ## Executando o Projeto
 npm rum dev
