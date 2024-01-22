@@ -11,7 +11,7 @@ const VerticalLine = styled.div`
     width: 10px;
     background: blue;
     `
-    const HorizontalLine = styled.div`
+const HorizontalLine = styled.div`
     height: 10px;
     width: 140px;
     background: blue;
@@ -19,7 +19,7 @@ const VerticalLine = styled.div`
     right: 80px;
     top: 0;
     `
-    const VerticalLineSmall = styled.div`
+const VerticalLineSmall = styled.div`
     height: 40px;
     width: 10px;
     background: blue;
@@ -29,7 +29,7 @@ const VerticalLine = styled.div`
     top: 0;
     `
 
-    const Head = styled.div`
+const Head = styled.div`
     height: 30px;
     width: 30px;
     border: 1px solid orange;
@@ -39,7 +39,7 @@ const VerticalLine = styled.div`
     left: 71;
     right: 67px;
     `
-    const Body = styled.div`
+const Body = styled.div`
     height: 80px;
     width: 10px;
     background: orange;
@@ -54,54 +54,67 @@ const VerticalLine = styled.div`
     position: absolute;
     top: 80px;
     right: 37px;
-    rotate: -30deg;
-    `
-    const LeftArm = styled.div`
+    transform: rotate(-30deg); // Correção: 'rotate' para 'transform: rotate()'
+`;
+
+const LeftArm = styled.div`
     height: 10px;
     width: 50px;
     background: orange;
     position: absolute;
     top: 80px;
     right: 77px;
-    rotate: 30deg;
-    `
-    const RightLeg = styled.div`
+    transform: rotate(30deg); // Correção: 'rotate' para 'transform: rotate()'
+`;
+
+const RightLeg = styled.div`
     height: 10px;
     width: 50px;
     background: orange;
     position: absolute;
     top: 157px;
     right: 80px;
-    rotate: -25deg;
-    `
-    const LeftLeg = styled.div`
+    transform: rotate(-25deg); // Correção: 'rotate' para 'transform: rotate()'
+`;
+
+const LeftLeg = styled.div`
     height: 10px;
     width: 50px;
     background: orange;
     position: absolute;
     top: 157px;
     right: 35px;
-    rotate: 25deg;
-    `
-export default function HangmanDrawing(){
+    transform: rotate(25deg); // Correção: 'rotate' para 'transform: rotate()'
+`;
+const bodyParts = [Head, Body, RightArm, LeftArm, RightArm, RightLeg, LeftLeg]
 
-    /*Div de return relativo, dentro dela trabalhamos com position absolute */ 
+interface HangmanDrawingProps {
+    numberOfGuesses: number;
+}
+
+
+export default function HangmanDrawing({
+    numberOfGuesses,
+}: HangmanDrawingProps) {
+     return (
+        <div style={{ position: 'relative' }}>
+            
+            
+            {bodyParts.slice(0, numberOfGuesses).map((BodyParty, index) => {
+                return <BodyParty key={index} />
+
+            })}
+                
+ 
+            <VerticalLineSmall />
+            <VerticalLine />
+            <HorizontalLine />
+            <Base />
+        </div>
+    )
+
+     /*Div de return relativo, dentro dela trabalhamos com position absolute */
     /* Para o position absoluto, a tela screen como todo, para limitar espaços utilizar relativo*/
     /*Utilizando o absoluto na div Pai ela será absoluta nesta div e não no navegador por completo*/
     /*Divs são inline block*/
-    return ( 
-    <div style={ {position: 'relative', display: "flex", flexDirection:'column', alignItems: 'center'}}>
-        <Head/>
-        <Body/>
-        <RightArm/>
-        <LeftArm/>
-        <RightLeg/>
-        <LeftLeg/>
-        <VerticalLineSmall/>
-        <VerticalLine/>
-        <HorizontalLine/>
-        <Base/>
-
-    </div>
-)
 }

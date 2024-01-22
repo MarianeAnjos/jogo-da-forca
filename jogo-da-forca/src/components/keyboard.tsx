@@ -39,32 +39,35 @@ grid-template-columns: repeat(auto-fit,minmax(75px, 1fr));
 gap: 0.5rem;y
 width: 600px;
 `
-const Button = styled.button<{isActive: boolean}>`
-    opacity: ${(p) => p.isActive ? 'null': '0.3'};
+const Button = styled.button<{ isActive: boolean }>`
+    opacity: ${(p) => p.isActive ? '1' : '0.3'};
 
-    &: focus:disabled {
-        outline: none;
-        border-color: transparent;
-        cursos: not-allowed;
-    }
-    &: focus-visible:disabled{
+    &:focus:disabled {
         outline: none;
         border-color: transparent;
         cursor: not-allowed;
     }
-    &: hover:disabled{
+
+    &:focus-visible:disabled {
         outline: none;
-        border-collor: transparent;
-        cursor: not-allowd;
+        border-color: transparent;
+        cursor: not-allowed;
     }
-`
+
+    &:hover:disabled {
+        outline: none;
+        border-color: transparent;
+        cursor: not-allowed;
+    }
+`;
+
 /*Keys feiito com map */
-export default function Keyboard(){
-    return(
+export default function Keyboard() {
+    return (
         <Wrapper>
             {keys.map((letter) => (
-            <Button isActive={true} key={letter}>
-                {letter.toUpperCase()}
+                <Button isActive={true} key={letter}>
+                    {letter.toUpperCase()}
                 </Button>
             ))}
         </Wrapper>
